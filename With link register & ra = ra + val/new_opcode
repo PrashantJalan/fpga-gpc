@@ -1,0 +1,31 @@
+
+0. 0000
+00000000 		no op
+00000001		user input 
+00000010		return
+00000011		halt
+000001 <ra>		right shift ra by 1
+000011 <val>		sleep sec as in <val>
+000010 <ra>		load immediate 8bit pattern to ra
+
+1. 0001 ra rb		r0 = ra + rb (add)
+2. 0010 ra val		r0 = ra + val (addi)
+3. 0011 ra rb 	 	r0 = ra - rb (sub)
+4. 0100 ra val		r0 = ra - val (subi)
+5. 0101 ra rb		{r0,r1} = ra * rb
+6. 011 <address>	mem[address] = r0 (store)
+7. 011 
+8. 100 {0,1} {0,1} <target>	if r0 or r1 >= r2 or r3 goto <target> pc = target * 8
+9. 100 <target>
+10. 1010 ra rb		ra = rb(move)
+11. 1011 ra rb		ra = rb(swap)
+12. 110 <address> 	r0 = mem[address](load)
+13. 110 
+
+15. 1111 ra val  	ra = val (loadi)
+
+14. 1110 00 (ra)	jump to address ra (pc = ra)
+1110 01 <ra>		display ra 	
+
+1110 10 <ra>		store ra
+1110 11 <ra>		get back into ra
